@@ -9,8 +9,8 @@ const Header = () => {
             <Link to="/home">Home</Link>
             <Link to="/register">Register</Link>
             <Link to="/login">LogIn</Link>
-            <span>{user.email}</span>
-            {user.email && <button onClick={logOut}>Log out</button>}
+            <span>{user.displayName}</span>
+            {user.displayName && <button onClick={logOut}>Log out</button>}
         </div>
     );
 };
