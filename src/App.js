@@ -10,30 +10,36 @@ import {
 } from "react-router-dom";
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
+import AuthProvider from './Context/AuthProvider';
+import Shipping from './Components/Shipping/Shipping';
 
 function App() {
   return (
     <div className="App">
+      <AuthProvider>
+        <Router>
+          <Header></Header>
+          <Switch>
+            <Route exact path="/">
+              <Home> </Home>
+            </Route>
+            <Route path="/home">
+              <Home> </Home>
+            </Route>
+            <Route path="/login">
+              <Login></Login>
+            </Route>
+            <Route path="/register">
+              <Register></Register>
+            </Route>
 
+            <Route path="/shipping">
+              <Shipping></Shipping>
+            </Route>
 
-      <Router>
-        <Header></Header>
-        <Switch>
-          <Route exact path="/">
-            <Home> </Home>
-          </Route>
-          <Route path="/home">
-            <Home> </Home>
-          </Route>
-          <Route path="/login">
-            <Login></Login>
-          </Route>
-          <Route path="/register">
-            <Register></Register>
-          </Route>
-
-        </Switch>
-      </Router>
+          </Switch>
+        </Router>
+      </AuthProvider>
     </div>
   );
 }
